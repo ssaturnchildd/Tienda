@@ -12,15 +12,15 @@ Esta es mi primera pagina HTML
         <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-       <header class="encabezado">
+        <header class="encabezado">
             <nav class="navegacion">
                 <a href="index.html" class="logo nav-link">TechShop</a>
                 <ul class="nav-menu">
                     <li class="nav-menu">
-                        <a href="pagina2.html">&triangleleft;</a>
+                        <a href="pagina7.html">&triangleleft;</a>
                     </li>
                     <li>
-                        <a href="pagina4.html">&triangleright;</a>  
+                        <a href="pagina2.html">&triangleright;</a>  
                     </li>
                     <li class="nav-menu-item"><a class="nav-link nav-menu-link" href="audio_1.html">Audio</a></li>
                     <li class="nav-menu-item"><a class="nav-link nav-menu-link" href="video.html">Video</a></li>
@@ -32,13 +32,30 @@ Esta es mi primera pagina HTML
 
             </nav>
         </header>
-        <p>Uso de encabezados</p>
-        
-        <h2>Encabezado nivel 2</h2>
-        <h3>Encabezado nivel 3</h3>
-        <h4>Encabezado nivel 4</h4>
-        <h5>Encabezado nivel 5</h5>
-        <h6>Encabezado nivel 6</h6>
-        
+
+        <aside>  
+            <h2>Uso de videos</h2> 
+            <p>Ejemplo de un video mp4</p>
+        </aside>
+        <section>
+            <h2>Videos</h2>
+            <article>
+                <h3>Un trailer de la pelicula Torpedo </h3>
+                <figure>
+                    <video width="320" height="240" controls autoplay muted>
+                        <source src="videos/torpedo.mp4" type="video/mp4">
+                  Su visor no soporta el <code>video</code> tag.
+                    </video>
+                    <figcaption>
+                        Accion + Comdedia
+                    </figcaption>
+                </figure>
+                <p>Las tarjetas gráficas GeForce RTX® 3080 Ti y RTX 3080 ofrecen el rendimiento perfecto que buscan los jugadores, con la tecnología de Ampere   </p>
+            </article>
+
+        </section>
+        <footer>
+            <p style="text-align: center" >Derechos de autor reservados &COPY; 2024  </p>
+        </footer>
     </body>
 </html>

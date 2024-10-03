@@ -1,0 +1,93 @@
+
+body{
+    box-sizing: border-box;
+    background-color: black;
+    margin: 0;
+    font-family: Helvetica;
+    padding: 80px 20px 0;
+
+}
+.encabezado{ 
+    border: lightgray;
+    position: fixed;
+    background-color: #076af0;
+    height: 90px;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.navegacion{
+    display: flex;
+    justify-content: space-between;
+    max-width: 992px;
+    margin: 0 auto;
+    
+}
+.nav-link{
+    color: white;
+    text-decoration: none;
+}
+.logo{
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Elephant;
+    padding: 0 40px;
+    line-height: 90px;
+    
+}
+.nav-menu{
+    display: flex; 
+    font-size:18px;
+    line-height: 90px;
+    list-style: none;
+}
+.nav-menu-item{
+    margin: 0 10px;
+    
+}.nav-menu-link{
+    padding: 8px 12px;
+    border-radius: 6px
+}
+.nav-menu-link:hover{
+    background-color: #024070;
+    
+}
+aside{
+    position: fixed;
+    background-color: black;
+    top:100px;
+    left:0;
+    width: 20%;
+    bottom: 20px;
+    color: white;
+    border-left: 1px lightgray;
+}
+
+section{
+    overflow-y:scroll;
+    position: fixed;
+    background-color: black;
+    color: white;
+    top: 90px;
+    left:20%;
+    bottom: 20px;
+    right:0%;
+}
+footer{
+    background-color: black;
+    color:white;
+    position: fixed;
+    left: 0;
+    bottom:0;
+    width: 100%;
+    height:30px;
+}
+
+tr:nth-child(odd){
+    background-color: blue;
+    color:white;
+}
+tr:nth-child(even){
+    background-color:red;
+    color:black;
+}

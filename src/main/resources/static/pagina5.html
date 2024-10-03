@@ -9,12 +9,29 @@ Esta es mi primera pagina HTML
         <link rel="icon" sizes="192x192" href="https://static.wixstatic.com/media/8802f6_c7ce6520cc54490bb1bd5d3ff286d2e8%7Emv2.jpg/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/8802f6_c7ce6520cc54490bb1bd5d3ff286d2e8%7Emv2.jpg" type="image/jpeg"/>
         <link rel="shortcut icon" href="https://static.wixstatic.com/media/8802f6_c7ce6520cc54490bb1bd5d3ff286d2e8%7Emv2.jpg/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/8802f6_c7ce6520cc54490bb1bd5d3ff286d2e8%7Emv2.jpg" type="image/jpeg"/>
         <link rel="apple-touch-icon" href="https://static.wixstatic.com/media/8802f6_c7ce6520cc54490bb1bd5d3ff286d2e8%7Emv2.jpg/v1/fill/w_180%2Ch_180%2Clg_1%2Cusm_0.66_1.00_0.01/8802f6_c7ce6520cc54490bb1bd5d3ff286d2e8%7Emv2.jpg" type="image/jpeg"/>
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-         <a href="pagina4.html">Atras</a>|
-        <a href="index.html">Inicio</a>|
-        <a href="pagina6.html">Siguiente</a>
-        <h1 style="text-align: center;background-color: black; color: white">Ejemplo 5</h1>
+        <header class="encabezado">
+            <nav class="navegacion">
+                <a href="index.html" class="logo nav-link">TechShop</a>
+                <ul class="nav-menu">
+                    <li class="nav-menu">
+                        <a href="pagina4.html">&triangleleft;</a>
+                    </li>
+                    <li>
+                        <a href="pagina6.html">&triangleright;</a>  
+                    </li>
+                    <li class="nav-menu-item"><a class="nav-link nav-menu-link" href="audio_1.html">Audio</a></li>
+                    <li class="nav-menu-item"><a class="nav-link nav-menu-link" href="video.html">Video</a></li>
+                    <li class="nav-menu-item"><a class="nav-link nav-menu-link" href="iframe.html">Iframe</a></li>
+                    <li class="nav-menu-item"><a class="nav-link nav-menu-link" href="formulario.html">Form</a></li>
+
+                </ul>
+
+
+            </nav>
+        </header>
         <p>Uso de Listas</p>
         
         <h2>El súper, si tengo dinero suficiente</h2>
@@ -36,6 +53,7 @@ Esta es mi primera pagina HTML
             
             
         </ol>
+
         
     </body>
 </html>

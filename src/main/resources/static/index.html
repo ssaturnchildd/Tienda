@@ -9,15 +9,91 @@ Esta es mi primera pagina HTML
         <link rel="icon" sizes="192x192" href="https://static.wixstatic.com/media/8802f6_c7ce6520cc54490bb1bd5d3ff286d2e8%7Emv2.jpg/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/8802f6_c7ce6520cc54490bb1bd5d3ff286d2e8%7Emv2.jpg" type="image/jpeg"/>
         <link rel="shortcut icon" href="https://static.wixstatic.com/media/8802f6_c7ce6520cc54490bb1bd5d3ff286d2e8%7Emv2.jpg/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/8802f6_c7ce6520cc54490bb1bd5d3ff286d2e8%7Emv2.jpg" type="image/jpeg"/>
         <link rel="apple-touch-icon" href="https://static.wixstatic.com/media/8802f6_c7ce6520cc54490bb1bd5d3ff286d2e8%7Emv2.jpg/v1/fill/w_180%2Ch_180%2Clg_1%2Cusm_0.66_1.00_0.01/8802f6_c7ce6520cc54490bb1bd5d3ff286d2e8%7Emv2.jpg" type="image/jpeg"/>
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-
-        <a href="index.html">Inicio</a>|
-        <a href="pagina2.html">Siguiente</a>
-        <h1 style="text-align: center;background-color: black; color: white">TechShop</h1>
-        <p>Su tienda en linea</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit mi cum malesuada torquent in aenean pellentesque, feugiat est aptent fringilla natoque posuere vitae penatibus eget lacus nec hendrerit dictumst. Class nunc congue pellentesque praesent dui pharetra dictumst tempus porttitor libero a, lectus sem interdum cubilia non blandit eros vestibulum quam nullam. Ligula aliquam mauris varius quis sapien sem hendrerit bibendum ac semper leo sociosqu, accumsan ornare luctus tincidunt blandit torquent nam nullam nascetur porta.</p>
-        <p>Rutrum mauris sollicitudin curae mus purus commodo proin porttitor ac, taciti fames praesent sed tortor nibh metus morbi bibendum turpis, nam nostra consequat condimentum nascetur tempor placerat fermentum. Proin nascetur dictumst rutrum vitae curabitur rhoncus fringilla aptent, quis class odio elementum posuere montes metus congue, pharetra libero ornare taciti pellentesque malesuada egestas. Vestibulum mollis sodales nisl tristique class euismod blandit neque pellentesque, condimentum primis vulputate ridiculus mauris non fringilla nec, ornare iaculis donec lacinia at dictumst nam himenaeos. Litora conubia cras sodales cursus auctor montes mattis cubilia, tristique risus nostra dignissim fringilla nec platea gravida, curae tellus dictumst felis proin quisque nibh.</p>
-        <p>Pellentesque mollis senectus aliquet ante vel maecenas nulla rutrum quisque, netus sapien rhoncus condimentum leo dictum metus euismod himenaeos, ultrices aptent primis taciti luctus varius etiam facilisis. Mi semper odio donec erat bibendum ornare sapien litora justo per, mollis consequat et ad quam lectus cursus hac hendrerit, torquent curae pulvinar vehicula vestibulum habitasse luctus euismod feugiat. Porttitor molestie turpis cubilia lectus odio venenatis, maecenas torquent fusce sodales tristique, habitasse risus tellus congue phasellus. Potenti senectus himenaeos morbi dapibus est habitasse ultricies viverra, mauris proin lobortis class praesent ultrices dui enim luctus, donec euismod mollis augue bibendum torquent interdum.</p>
+         <header>
+            <h1 style="text-align: center;background-color: black; color: white">TechShop</h1>
+            <nav>
+                <a href="index.html">TechShop</a>
+                <a href="pagina7.html">&triangleleft;</a>
+                <a href="pagina2.html">&triangleright;</a>
+            </nav>
+        </header>
+        <aside>  
+            <h2>Ultimas Noticias</h2> 
+            <p> El producto mas vendido del 2023 fue la tarjeta grafica RTX GFORCE 3080Ti</p>
+        </aside>
+        <section>
+            <h2>Nuestros productos</h2>
+            <article>
+                <h3>RTX GFORCE 3080Ti </h3>
+                <figure>
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_944897-MCR53951039507_022023-O.webp" alt="alt"/>
+                    <figcaption>
+                        ¢116.000 (9) <a href="#">Add</a>
+                    </figcaption>
+                </figure>
+                <p>Las tarjetas gráficas GeForce RTX® 3080 Ti y RTX 3080 ofrecen el rendimiento perfecto que buscan los jugadores, con la tecnología de Ampere   </p>
+            </article>
+            <article>
+                <h3>
+                    Teclado Razer Tartarus
+                </h3>
+                <figure>
+                    <img src="https://extremetechcr.com/tienda/10162/razer-tartarus-v2.jpg" alt="alt"/>
+                    <figcaption>
+                        ¢43.000 (2) <a href="#">Add</a>
+                    </figcaption>
+                </figure>
+                <p>Toma las riendas de tu juego con el Razer Tartarus Pro, un teclado para juegos con el que nunca se te escapará la victoria</p>
+            </article>
+            
+                
+                   Productos mas vendidos
+                   <table border="0">
+                       <thead>
+                           <tr>
+                               <th>Codigo</th>
+                               <th>Descripcion</th>
+                               <th>Ventas</th>
+                           </tr>
+                       </thead>
+                       <tbody>
+                           <tr>
+                               <td>1</td>
+                               <td>Producto 1</td>
+                               <td>10</td>
+                           </tr>
+                           <tr>
+                               <td>2</td>
+                               <td>Prodructo 2</td>
+                               <td>8</td>
+                           </tr>
+                           <tr>
+                               <td>3</td>
+                               <td>Producto 3</td>
+                               <td>6</td>
+                           </tr>
+                           <tr>
+                               <td>4</td>
+                               <td>Producto 4</td>
+                               <td>5</td>
+                           </tr>
+                           <tr>
+                               <td>5</td>
+                               <td>Producto 5</td>
+                               <td>2</td>
+                           </tr>
+                       </tbody>
+                   </table>
+                  
+            
+            <p>Rutrum mauris sollicitudin curae mus purus commodo proin porttitor ac, taciti fames praesent sed tortor nibh metus morbi bibendum turpis, nam nostra consequat condimentum nascetur tempor placerat fermentum. Proin nascetur dictumst rutrum vitae curabitur rhoncus fringilla aptent, quis class odio elementum posuere montes metus congue, pharetra libero ornare taciti pellentesque malesuada egestas. Vestibulum mollis sodales nisl tristique class euismod blandit neque pellentesque, condimentum primis vulputate ridiculus mauris non fringilla nec, ornare iaculis donec lacinia at dictumst nam himenaeos. Litora conubia cras sodales cursus auctor montes mattis cubilia, tristique risus nostra dignissim fringilla nec platea gravida, curae tellus dictumst felis proin quisque nibh.</p>
+            <p>Pellentesque mollis senectus aliquet ante vel maecenas nulla rutrum quisque, netus sapien rhoncus condimentum leo dictum metus euismod himenaeos, ultrices aptent primis taciti luctus varius etiam facilisis. Mi semper odio donec erat bibendum ornare sapien litora justo per, mollis consequat et ad quam lectus cursus hac hendrerit, torquent curae pulvinar vehicula vestibulum habitasse luctus euismod feugiat. Porttitor molestie turpis cubilia lectus odio venenatis, maecenas torquent fusce sodales tristique, habitasse risus tellus congue phasellus. Potenti senectus himenaeos morbi dapibus est habitasse ultricies viverra, mauris proin lobortis class praesent ultrices dui enim luctus, donec euismod mollis augue bibendum torquent interdum.</p>
+        </section>
+        <footer>
+            <p style="text-align: center" >Derechos de autor reservados &COPY; 2024  </p>
+        </footer>
     </body>
 </html>
