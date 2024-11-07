@@ -5,6 +5,7 @@
 package com.tienda.controller;
 
 import com.tienda.domain.Producto;
+import com.tienda.services.CategoriaService;
 import com.tienda.services.ProductoService;
 import com.tienda.services.impl.FirebaseStorageServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,26 +27,30 @@ public class ProductoController {
 
     @Autowired
     private ProductoService productoService;
+    @Autowired
+    private CategoriaService categoriaService;
 
     @GetMapping("/listado")
     public String listado(Model model) {
-        var lista= productoService.getProductos(false);
+        var lista = productoService.getProductos(false);
         model.addAttribute("productos", lista);
         model.addAttribute("totalProductos", lista.size());
+        var categorias = categoriaService.getCategorias(true);
+        model.addAttribute("categorias", categorias);
         return "/producto/listado";
     }
     @Autowired
     private FirebaseStorageServiceImpl firebaseStorageService;
-    
+
     @PostMapping("/guardar")
     public String productoGuardar(Producto producto,
-            @RequestParam("imagenFile") MultipartFile imagenFile) {        
+            @RequestParam("imagenFile") MultipartFile imagenFile) {
         if (!imagenFile.isEmpty()) {
             productoService.save(producto);
             producto.setRutaImagen(
                     firebaseStorageService.cargaImagen(
-                            imagenFile, 
-                            "producto", 
+                            imagenFile,
+                            "producto",
                             producto.getIdProducto()));
         }
         productoService.save(producto);
@@ -62,6 +67,8 @@ public class ProductoController {
     public String productoModificar(Producto producto, Model model) {
         producto = productoService.getProducto(producto);
         model.addAttribute("producto", producto);
+        var categorias = categoriaService.getCategorias(true);
+        model.addAttribute("categorias", categorias);
         return "/producto/modifica";
     }
 }

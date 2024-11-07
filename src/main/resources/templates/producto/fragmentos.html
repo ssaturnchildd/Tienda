@@ -27,20 +27,28 @@ Mi primera pagina dinamica
                                             <tr>
                                                 <th>#</th>
                                                 <th>[[#{producto.descripcion}]]</th>
+                                                <th>[[#{producto.precio}]]</th>
+                                                <th>[[#{producto.existencias}]]</th>
+                                                <th>[[#{producto.total}]]</th>
                                                 <th>[[#{producto.activo}]]</th>
-                                                <th>[[#{producto.rutaImagen}]]</th>
+                                                <th>[[#{producto.categoria}]]</th>
+                                                <th>[[#{producto.imagen}]]</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr th:each="c: ${productos}">
-                                                <td>[[${c.idProducto}]]</td>
-                                                <td>[[${c.descripcion}]]</td>
-                                                <td th:text="${c.activo} ? 'Activo' : 'Inactivo'"></td>
-                                                <td><img th:src="@{${c.rutaImagen}}" height="75"/></td>
+                                            <tr th:each="p: ${productos}">
+                                                <td>[[${p.idProducto}]]</td>
+                                                <td>[[${p.descripcion}]]</td>
+                                                <td class="text-end">[[${p.precio}]]</td>
+                                                <td class="text-center">[[${p.existencias}]]</td>
+                                                <td class="text-end">[[${p.precio*p.existencias}]]</td>
+                                               
+                                                <td th:text="${p.activo} ? 'Activo' : 'Inactivo'"></td>
+                                                <td><img th:src="@{${p.rutaImagen}}" height="75"/></td>
                                                 <td>
-                                                    <a class='btn btn-danger' th:href='@{/producto/eliminar/}+${c.idProducto}'><i class='fas fa-trash'></i> [[#{accion.eliminar}]]</a>
-                                                    <a class='btn btn-warning' th:href='@{/producto/modificar/}+${c.idProducto}'><i class='fas fa-pencil'></i> [[#{accion.actualizar}]]</a>
+                                                    <a class='btn btn-danger' th:href='@{/producto/eliminar/}+${p.idProducto}'><i class='fas fa-trash'></i> [[#{accion.eliminar}]]</a>
+                                                    <a class='btn btn-warning' th:href='@{/producto/modificar/}+${p.idProducto}'><i class='fas fa-pencil'></i> [[#{accion.actualizar}]]</a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -100,9 +108,31 @@ Mi primera pagina dinamica
                               enctype="multipart/form-data">
                             <div class="modal-body">
                                 <div class="mb-3">
+                                    <label for="idCategoria">[[#{producto.categoria}]]</label>
+                                    <select class="form-select" name="categoria.idCategoria" required="true">
+                                        <option th:each="c: ${categorias}" th:value="${c.idCategoria}">[[${c.descripcion}]]</option>
+
+                                    </select>
+                                </div>
+                                <div class="mb-3">
                                     <label for="descripcion">[[#{producto.descripcion}]]</label>
                                     <input type="text" class="form-control" 
                                            name="descripcion" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="detalle">[[#{producto.detalle}]]</label>
+                                    <textarea class="form-control" 
+                                              name="detalle" rows="3"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="precio">[[#{producto.precio}]]</label>
+                                    <input type="number" class="form-control" 
+                                           name="precio" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="existencias">[[#{producto.existencias}]]</label>
+                                    <input type="number" class="form-control" 
+                                           name="existencias" required="true"/>
                                 </div>
                                 <div class="mb-3">
                                     <label for="activo">[[#{producto.activo}]]</label>
@@ -110,7 +140,7 @@ Mi primera pagina dinamica
                                            name="activo" id="activo"/>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="imagen">[[#{producto.rutaImagen}]]</label>
+                                    <label for="imagen">[[#{producto.imagen}]]</label>
                                     <input class="form-control" 
                                            type="file" 
                                            name="imagenFile" 
@@ -151,10 +181,32 @@ Mi primera pagina dinamica
                                             </div>
                                             <div class="card-body">
                                                 <div class="mb-3">
+                                                    <label for="idCategoria">[[#{producto.categoria}]]</label>
+                                                    <select class="form-select" name="categoria.idCategoria" required="true">
+                                                        <option th:each="c: ${categorias}" th:value="${c.idCategoria}" th:field="*{descripcion}">[[${c.descripcion}]]</option>
+
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
                                                     <label for="descripcion">[[#{producto.descripcion}]]</label>
                                                     <input type="text" class="form-control" 
                                                            name="descripcion" th:field="*{descripcion}"
                                                            required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="detalle">[[#{producto.detalle}]]</label>
+                                                    <textarea class="form-control" 
+                                                              name="detalle" rows="3" th:field="*{detalle}"></textarea>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="precio">[[#{producto.precio}]]</label>
+                                                    <input type="number" class="form-control" 
+                                                           name="precio" required="true" th:field="*{precio}"/>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="existencias">[[#{producto.existencias}]]</label>
+                                                    <input type="number" class="form-control" 
+                                                           name="existencias" required="true" th:field="*{existencias}"/>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="activo">[[#{producto.activo}]]</label>
@@ -165,7 +217,7 @@ Mi primera pagina dinamica
                                                            th:field="*{activo}">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="imagen">[[#{producto.rutaImagen}]]</label>
+                                                    <label for="imagen">[[#{producto.imagen}]]</label>
                                                     <input class="form-control" type="file" name="imagenFile"
                                                            onchange="readURL(this);" />
                                                     <img id="blah" th:src="@{${producto.rutaImagen}}" alt="your image" height="200"/>

@@ -23,6 +23,9 @@ public class Categoria implements Serializable{
     private String descripcion;
     private String rutaImagen;
     private boolean activo;
+    //@OneToMany
+    //@JoinColumn(name="id_categoria",updatable = false)
+   // private List<Producto> productos;
 }
 
 /*create table categoria (
