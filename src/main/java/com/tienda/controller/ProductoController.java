@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.tienda.controller;
+    package com.tienda.controller;
 
 import com.tienda.domain.Producto;
 import com.tienda.services.CategoriaService;
@@ -17,40 +13,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-/**
- *
- * @author sebastianbarrantes
- */
 @Controller
 @RequestMapping("/producto")
 public class ProductoController {
-
+    
     @Autowired
     private ProductoService productoService;
     @Autowired
     private CategoriaService categoriaService;
-
-    @GetMapping("/listado")
-    public String listado(Model model) {
-        var lista = productoService.getProductos(false);
+    
+    @GetMapping ("/listado")
+    public String listado(Model model){
+        var lista=productoService.getProducto(false);
         model.addAttribute("productos", lista);
         model.addAttribute("totalProductos", lista.size());
-        var categorias = categoriaService.getCategorias(true);
+        
+        var categorias=categoriaService.getCategoria(true);
         model.addAttribute("categorias", categorias);
+        
         return "/producto/listado";
     }
+    
     @Autowired
     private FirebaseStorageServiceImpl firebaseStorageService;
-
+    
     @PostMapping("/guardar")
     public String productoGuardar(Producto producto,
-            @RequestParam("imagenFile") MultipartFile imagenFile) {
+            @RequestParam("imagenFile") MultipartFile imagenFile) {        
         if (!imagenFile.isEmpty()) {
             productoService.save(producto);
             producto.setRutaImagen(
                     firebaseStorageService.cargaImagen(
-                            imagenFile,
-                            "producto",
+                            imagenFile, 
+                            "producto", 
                             producto.getIdProducto()));
         }
         productoService.save(producto);
@@ -67,8 +62,11 @@ public class ProductoController {
     public String productoModificar(Producto producto, Model model) {
         producto = productoService.getProducto(producto);
         model.addAttribute("producto", producto);
-        var categorias = categoriaService.getCategorias(true);
-        model.addAttribute("categorias", categorias);
+        
+        var categorias=categoriaService.getCategoria(true);
+        model.addAttribute("categorias", categorias);   
+        
         return "/producto/modifica";
     }
 }
+

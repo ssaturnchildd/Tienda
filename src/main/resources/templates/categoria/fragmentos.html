@@ -1,76 +1,20 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
-Mi primera pagina dinamica
--->
-<html xmlns="http://www.w3.org/1999/xhtml" 
+<!-- Mi primera pagina dinamica -->
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
     <head th:replace="~{layout/plantilla :: head}">
         <title>TechShop</title>
-        <meta charset="UTF-8"/>  
+        <meta charset="UTF-8"/> 
+
     </head>
-
     <body>
-        <section th:fragment="listadoCategorias">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-9">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>[[#{categoria.listado}]]</h4>
-                            </div>
-                            <div class="card-body">
-                                <div th:if='${categorias != null and !categorias.empty}'>
-                                    <table class="table table-striped table-hover">
-                                        <thead class="table-dark">
-                                            <tr>
-                                                <th>#</th>
-                                                <th>[[#{categoria.descripcion}]]</th>
-                                                <th>[[#{categoria.activo}]]</th>
-                                                <th>[[#{categoria.rutaImagen}]]</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr th:each="c: ${categorias}">
-                                                <td>[[${c.idCategoria}]]</td>
-                                                <td>[[${c.descripcion}]]</td>
-                                                <td th:text="${c.activo} ? 'Activo' : 'Inactivo'"></td>
-                                                <td><img th:src="@{${c.rutaImagen}}" height="75"/></td>
-                                                <td>
-                                                    <a class='btn btn-danger' th:href='@{/categoria/eliminar/}+${c.idCategoria}'><i class='fas fa-trash'></i> [[#{accion.eliminar}]]</a>
-                                                    <a class='btn btn-warning' th:href='@{/categoria/modificar/}+${c.idCategoria}'><i class='fas fa-pencil'></i> [[#{accion.actualizar}]]</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div th:if='${categorias == null or categorias.empty}'>
-                                    <h4>[[#{lista.vacia}]]</h4>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class='card text-center text-white bg-success m-3'>
-                            <div class='card-body'>
-                                <h3>[[#{categoria.total}]]</h3>
-                                <h4><i class='fas fa-layer-group'></i>[[${totalCategorias}]]</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <!-- 1 Sección para crear el boton de agregar... llamará a una ventana modal-->
         <section th:fragment="botonesAgregar" class="py-4 mb-4 bg-light">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">   
                         <button type="button" 
-                                class="btn btn-primary btn-block" 
+                                class="btn btn-success btn-block" 
                                 data-bs-toggle="modal" 
                                 data-bs-target="#agregarCategoria">
                             <i class="fas fa-plus"></i> [[#{categoria.agregar}]]
@@ -89,7 +33,7 @@ Mi primera pagina dinamica
                  aria-hidden="true">
                 <div class="modal-dialog modal-md">
                     <div class="modal-content">
-                        <div class="modal-header bg-info text-white">
+                        <div class="modal-header bg-dark text-white">
                             <h5 class="modal-title">[[#{categoria.agregar}]]</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div> 
@@ -203,7 +147,64 @@ Mi primera pagina dinamica
                 </div>
             </div>
         </section>
+        
+        <section th:fragment="listadoCategorias">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>[[#{categoria.listado}]]</h4>
+                            </div>
+                            <div class="card-body">
+                                <div th:if="${categorias != null and !categorias.empty}">
+                                    <table class="table table-striped table-hover">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>[[#{categoria.descripcion}]]</th>
+                                                <th>[[#{categoria.activo}]]</th>
+                                                <th>[[#{categoria.rutaImagen}]]</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="c : ${categorias}">
+                                                <td>[[${c.idCategoria}]]</td>
+                                                <td>[[${c.descripcion}]]</td>
+                                                <td th:text="${c.activo} ? 'Activo' : 'Inactivo'"></td>
+                                                <td><img th:src="@{${c.rutaImagen}}" height="75"/></td>
+                                                <td>
+                                                    <a class='btn btn-danger'
+                                                       th:href='@{/categoria/eliminar/}+${c.idCategoria}'>
+                                                        <i class='fas fa-trash'></i> [[#{accion.eliminar}]]
+                                                    </a>
+                                                    <a class='btn btn-secondary'
+                                                       th:href='@{/categoria/modificar/}+${c.idCategoria}'>
+                                                        <i class='fas fa-pen-to-square'></i> [[#{accion.actualizar}]]
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div th:if="${categorias == null or categorias.empty}">
+                                    <h4>[[#{lista.vacia}]]</h4>
+                                </div>
 
-
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card text-center text-white bg-success m-3">
+                            <div class="card-body">
+                                <h3>[[#{categoria.total}]]</h3>
+                                <h4><i class='fas fa-layer-group'></i>[[${totalCategorias}]]</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </body>
 </html>
