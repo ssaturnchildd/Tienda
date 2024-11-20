@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<!-- Mi primera pagina dinamica -->
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="~{layout/plantilla :: head}">
+      xmlns:th="http://www.thymeleaf.org"> 
+
+    <head th:replace="~{layout/plantilla :: head}"> <!-- para llamar al encabezado de la plantilla -->
         <title>TechShop</title>
         <meta charset="UTF-8"/> 
-        
     </head>
-    <body>
-        <header th:replace="~{layout/plantilla :: header}">
-        </header>
-        
-        <footer th:replace="~{layout/plantilla :: footer}">    
-        </footer>
+
+    <body> 
+        <header th:replace="~{layout/plantilla :: header}"/> 
+        <footer th:replace="~{layout/plantilla :: footer}"/> 
     </body>
 </html>
