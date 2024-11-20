@@ -52,22 +52,22 @@
                 </div>
             </div>
         </section>
-         <!-- 3 Sección para crear los formularios de consultas-->
+        <!-- 3 Sección para crear los formularios de consultas-->
         <section th:fragment="consultas">
             <div class="row row-cols-3 p-2">
                 <div class="card p2">
-                    <form method="post" action="/pruebas/consultaAmpliada">
+                    <form method="get" action="/pruebas/consultaAmpliada">
                         <div class="card-header bg-primary text-white text-center">
                             <h4>[[#{pruebas.ampliadas}]]</h4>
                         </div>
-                        <div class="card-body bg-warning">
+                        <div class="card-body bg-light">
                             <div class="mb-3">
                                 <<label for="precioInf">[[#{pruebas.precio.inferior}]]</label>
                                 <input type="number" 
                                        name="precioInf" 
                                        th:value="precioInf"/>
                             </div> 
-                             <div class="mb-3">
+                            <div class="mb-3">
                                 <<label for="precioSup">[[#{pruebas.precio.superior}]]</label>
                                 <input type="number" 
                                        name="precioSup" 
@@ -82,20 +82,20 @@
                         </div>
                     </form>
                 </div>
-                
+
                 <div class="card p2">
-                    <form method="post" action="/pruebas/consultaJPQL">
+                    <form method="get" action="/pruebas/consultaJPQL">
                         <div class="card-header bg-primary text-white text-center">
                             <h4>[[#{pruebas.jpql}]]</h4>
                         </div>
-                        <div class="card-body bg-warning">
+                        <div class="card-body bg-light">
                             <div class="mb-3">
                                 <<label for="precioInf">[[#{pruebas.precio.inferior}]]</label>
                                 <input type="number" 
                                        name="precioInf" 
                                        th:value="precioInf"/>
                             </div> 
-                             <div class="mb-3">
+                            <div class="mb-3">
                                 <<label for="precioSup">[[#{pruebas.precio.superior}]]</label>
                                 <input type="number" 
                                        name="precioSup" 
@@ -110,20 +110,20 @@
                         </div>
                     </form>
                 </div>
-                
+
                 <div class="card p2">
-                    <form method="post" action="/pruebas/consultaSQL">
+                    <form method="get" action="/pruebas/consultaSQL">
                         <div class="card-header bg-primary text-white text-center">
                             <h4>[[#{pruebas.nativo}]]</h4>
                         </div>
-                        <div class="card-body bg-warning">
+                        <div class="card-body bg-light">
                             <div class="mb-3">
                                 <<label for="precioInf">[[#{pruebas.precio.inferior}]]</label>
                                 <input type="number" 
                                        name="precioInf" 
                                        th:value="precioInf"/>
                             </div> 
-                             <div class="mb-3">
+                            <div class="mb-3">
                                 <<label for="precioSup">[[#{pruebas.precio.superior}]]</label>
                                 <input type="number" 
                                        name="precioSup" 
@@ -139,6 +139,78 @@
                     </form>
                 </div>
             </div>
+            <div class="row row-cols-3 p-2">
+                <!-- Consulta Ampliada -->
+                <div class="card p2">
+                    <form method="get" action="/pruebas/consultaAmpliada2">
+                        <div class="card-header bg-primary text-white text-center">
+                            <h4>[[#{pruebas.ampliadas}]]</h4>
+                        </div>
+                        <div class="card-body bg-light">
+                            <div class="mb-3">
+                                <label for="existencias">[[#{pruebas.existencias}]]</label>
+                                <input type="number" 
+                                       name="existencias" 
+                                       th:value="existencias"/>
+                            </div> 
+                        </div>
+                        <div class="card-footer bg-secundary text-center">
+                            <button class="btn btn-primary text-whitet" 
+                                    type="submit">
+                                <i class="fas fa-magnifying-glass"></i> [[#{pruebas.ampliadas}]]
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Consulta JPQL -->
+                <div class="card p2">
+                    <form method="get" action="/pruebas/consultaJPQL2">
+                        <div class="card-header bg-primary text-white text-center">
+                            <h4>[[#{pruebas.jpql}]]</h4>
+                        </div>
+                        <div class="card-body bg-light">
+                            <div class="mb-3">
+                                <label for="existencias">[[#{pruebas.existencias}]]</label>
+                                <input type="number" 
+                                       name="existencias" 
+                                       th:value="existencias"/>
+                            </div> 
+                        </div>
+                        <div class="card-footer bg-secundary text-center">
+                            <button class="btn btn-primary text-whitet" 
+                                    type="submit">
+                                <i class="fas fa-magnifying-glass"></i> [[#{pruebas.jpql}]]
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Consulta SQL -->
+                <div class="card p2">
+                    <form method="get" action="/pruebas/consultaSQL2">
+                        <div class="card-header bg-primary text-white text-center">
+                            <h4>[[#{pruebas.nativo}]]</h4>
+                        </div>
+                        <div class="card-body bg-light">
+                            <div class="mb-3">
+                                <label for="existencias">[[#{pruebas.existencias}]]</label>
+                                <input type="number" 
+                                       name="existencias" 
+                                       th:value="existencias"/>
+                            </div> 
+                        </div>
+                        <div class="card-footer bg-secundary text-center">
+                            <button class="btn btn-primary text-whitet" 
+                                    type="submit">
+                                <i class="fas fa-magnifying-glass"></i> [[#{pruebas.nativo}]]
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
         </section>
 
     </body>

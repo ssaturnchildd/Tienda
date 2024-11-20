@@ -50,7 +50,7 @@ public class PruebasController {
         return "/pruebas/listado2";
     }
 
-    @PostMapping("/consultaAmpliada")
+    @GetMapping("/consultaAmpliada")
     public String consultasAmpliadas(@RequestParam(value = "precioInf") double precioInf,
             @RequestParam(value = "precioSup") double precioSup,
             Model model) {
@@ -60,7 +60,8 @@ public class PruebasController {
         model.addAttribute("precioSup", precioSup);
         return "/pruebas/listado2";
     }
-    @PostMapping("/consultaJPQL")
+
+    @GetMapping("/consultaJPQL")
     public String consultasJPQL(@RequestParam(value = "precioInf") double precioInf,
             @RequestParam(value = "precioSup") double precioSup,
             Model model) {
@@ -70,7 +71,8 @@ public class PruebasController {
         model.addAttribute("precioSup", precioSup);
         return "/pruebas/listado2";
     }
-    @PostMapping("/consultaSQL")
+
+    @GetMapping("/consultaSQL")
     public String consultasSQL(@RequestParam(value = "precioInf") double precioInf,
             @RequestParam(value = "precioSup") double precioSup,
             Model model) {
@@ -80,4 +82,32 @@ public class PruebasController {
         model.addAttribute("precioSup", precioSup);
         return "/pruebas/listado2";
     }
+
+    @GetMapping("/consultaAmpliada2")
+    public String consultasAmpliadas(@RequestParam(value = "existencias") int existencias,
+            Model model) {
+        var productos = productoService.consultaAmpliada(existencias);
+        model.addAttribute("productos", productos);
+        model.addAttribute("existencias", existencias);
+        return "/pruebas/listado2";
+    }
+
+    @GetMapping("/consultaJPQL2")
+    public String consultasJPQL(@RequestParam(value = "existencias") int existencias,
+            Model model) {
+        var productos = productoService.consultaJPQL(existencias);
+        model.addAttribute("productos", productos);
+        model.addAttribute("existencias", existencias);
+        return "/pruebas/listado2";
+    }
+
+    @GetMapping("/consultaSQL2")
+    public String consultasSQL(@RequestParam(value = "existencias") int existencias,
+            Model model) {
+        var productos = productoService.consultaSQL(existencias);
+        model.addAttribute("productos", productos);
+        model.addAttribute("existencias", existencias);
+        return "/pruebas/listado2";
+    }
+
 }

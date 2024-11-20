@@ -30,4 +30,17 @@ public interface ProductoService {
     //Consulta SQL
     //Recupera los productos que estan en un rango de precios ordenados por descripcion
     public List<Producto> consultaSQL(double precioInf, double precioSup);
+
+    //Consulta ampliada
+    // Recupera los productos con existencias mayores o iguales al valor dado, ordenados por descripción
+    public List<Producto> consultaAmpliada(int existencias);
+
+    //Consulta JPQL
+    // Recupera los productos con existencias mayores o iguales al valor dado, ordenados por descripción
+    public List<Producto> consultaJPQL(int existencias);
+
+    //Consulta SQL
+    // Recupera los productos con existencias mayores o iguales al valor dado, ordenados por descripción
+    public List<Producto> consultaSQL(int existencias);
+
 }
